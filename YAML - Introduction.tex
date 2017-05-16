@@ -1,0 +1,105 @@
+%!TEX TS-program = xelatex
+
+\documentclass{beamer}
+
+% ============
+% = Packages =
+% ============
+
+\usepackage{grffile}
+\usepackage{minted}
+\usepackage{polyglossia}
+\usepackage{tikz}
+
+% ==============
+% = Attributes =
+% ==============
+
+\newcommand{\Title}{YAML}
+\newcommand{\TitleDescription}{Einführung}
+\newcommand{\Subject}{Einführende Präsentation zur\\
+                      Daten-Serialisierungssprache YAML}
+\newcommand{\KeyWords}{YAML, Serialisierung}
+\newcommand{\LeftFooter}{\Title~—~\TitleDescription}
+
+\newcommand{\Author}{René Schwaiger}
+\newcommand{\Mail}{\href{mailto:sanssecours@me.com}{sanssecours@me.com}}
+
+% ============
+% = Settings =
+% ============
+
+% Code
+\usemintedstyle{rainbow_dash}
+
+% Colors
+\definecolor{Aqua}{rgb}{0, 0.56, 1}
+
+% Document Properties
+\hypersetup{pdftitle=\Title, pdfsubject=\Subject, pdfauthor=\Author,
+            pdfkeywords = \KeyWords}
+
+\title{\hspace{-2.4mm}\textbf{\textcolor{black}{Y}
+       \hspace{-3.6mm}\textcolor{red}{A}\\[-10pt]
+       \hspace{+2.4mm}\textcolor{black}{ML}}}
+\author{\Author}
+\date{\textit{\Subject}}
+
+% Fonts
+\setmainfont{Avenir}
+\setsansfont{Ubuntu}
+\setmonofont{Ubuntu Mono}
+\newfontfamily\Helvetica{Helvetica}
+
+% Language
+\setmainlanguage{english}
+\setotherlanguage{german}
+
+% Theme
+\usetheme[headheight=10pt, footheight=10pt]{boxes}
+\addheadbox{header}{~~ \Title ~~~~~~
+                    \insertframenumber{} / \inserttotalframenumber}
+\addfootbox{footer}{~~ \insertsection ~ \insertsubsection}
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{itemize item}[circle]
+
+\setbeamercolor{alerted text}{fg=orange}
+\setbeamercolor{frametitle}{fg=Aqua}
+\setbeamercolor{block title}{fg=black}
+\setbeamercolor{itemize item}{fg=black}
+\setbeamercolor{structure}{fg=black}
+\setbeamercolor{title}{fg=Aqua}
+\setbeamercolor{titlelike}{fg=Aqua}
+\setbeamercolor{left footer}{fg=white, bg=black}
+\setbeamercolor{right footer}{fg=white, bg=black}
+\setbeamercolor{footer}{fg=white, bg=black}
+\setbeamercolor{header}{fg=white, bg=black}
+\setbeamercovered{transparent=20}
+
+\setbeamerfont{title}{series=\Helvetica, size=\Huge}
+
+% ============
+% = Document =
+% ============
+
+\begin{document}
+
+{
+  \usebackgroundtemplate{
+    \tikz\node[opacity=0.1]{
+      \parbox[c][\paperheight][c]{\paperwidth}{
+        \centering
+        \includegraphics[width=0.85\textwidth]{Figures/Elektra - Logo}
+      }
+    };
+  }
+  \begin{frame}[plain]
+      \titlepage
+  \end{frame}
+}
+
+\begin{frame}{Inhalt}
+    \tableofcontents
+\end{frame}
+
+\end{document}
