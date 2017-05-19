@@ -10,6 +10,8 @@
 \usepackage{minted}
 \usepackage{polyglossia}
 \usepackage{tikz}
+\usepackage{xltxtra}
+\usepackage{xelatexemoji}
 
 % ==============
 % = Attributes =
@@ -99,6 +101,47 @@
 
 \begin{frame}{Inhalt}
     \tableofcontents
+\end{frame}
+
+\section{🐪 Allgemeines}
+
+\begin{frame}[fragile]{🐪 Allgemeines}
+  \begin{minted}[autogobble]{yaml}
+    - Abkürzung:
+       - Früher: Yet Another Markup Language
+       - Heute: YAML Ain’t Markup Language
+    - Aktuelle Version: YAML 1.2 (2009)
+    - Superset von JSON # seit YAML 1.2
+    - 3 verschiedene Datentypen:
+      - Skalar:
+        - "Hello World"
+        - '👋 🌍'
+        - 123
+      - Sequenz: [Text, 'Text', "Text", 123.5]
+      - Map: {🔑: Value, see-no-evil monkey: 🙈}
+    - Hauptziel: “YAML is easily readable by humans.”
+    # Kompletter Text auf dieser Folie ist valides YAML
+  \end{minted}
+\end{frame}
+
+\subsection{😱 Flow Style}
+
+\begin{frame}[fragile]{😱 Flow Style}
+  \begin{block}{Dokument der vorhergehenden Folie in reinem Flow-Style}
+    \begin{minted}[autogobble]{yaml}
+    [{'Abkürzung':
+       [{'Früher': 'Yet Another Markup Language'},
+        {'Heute': 'YAML Ain’t Markup Language'}]},
+     {'Aktuelle Version': 'YAML 1.2 (2009)'},
+     'Superset von JSON',
+     {'3 verschiedene Datentypen':
+        [{'Skalar': ['Hello World', '👋 🌍', 123]},
+         {'Sequenz': ['Text', 'Text', 'Text', 123.5]},
+         {'Map': {'🔑': 'Value', 'see-no-evil monkey': '🙈'}}]},
+     {'Hauptziel': '“YAML is easily readable by humans.”'}]
+    # Kompletter Text auf dieser Folie ist valides YAML
+    \end{minted}
+  \end{block}
 \end{frame}
 
 \end{document}
