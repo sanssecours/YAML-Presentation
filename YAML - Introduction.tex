@@ -144,4 +144,78 @@
   \end{block}
 \end{frame}
 
+\section{⚪️ Einfache Datentypen}
+
+\subsection{📏  Skalar}
+
+\begin{frame}[fragile]{📏 Skalar}
+  \begin{itemize}
+    \item Einfachster Typ
+    \item Speichert Zahlen, Zeichenketten
+    \item Beispiele
+    \begin{itemize}
+      \item Strings
+      \begin{itemize}
+        \item \mintinline{yaml}|Plain String|
+        \item \mintinline{yaml}|'Single Quoted String'|
+        \item \mintinline{yaml}|"Double Quoted String"|
+        \item \mintinline{yaml}|'1337'|
+        \item \mintinline{yaml}|!!str 1337 # Entspricht "1337" oder '1337'|
+      \end{itemize}
+      \item Ganzzahlen
+      \begin{itemize}
+        \item \mintinline{yaml}|1337|
+        \item \mintinline{yaml}|!!int 1337 # Explizite Typspezifikation|
+      \end{itemize}
+      \item Fließkommazahlen
+      \begin{itemize}
+        \item \mintinline{yaml}|0.1337|
+        \item \mintinline{yaml}|!!float 0.1337 # Explizite Typspezifikation|
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\subsection{📋 Sequenz}
+
+\begin{frame}[fragile]{📋 Sequenz}
+  \begin{block}{Folge von Werten \textcolor{gray}{(Array, Feld, Liste)}}
+    \begin{minted}[autogobble]{yaml}
+      # Flow-Style
+      [🍎, 🍊, [Sugar, Eggs, Chocolate]]
+      # Block-Style
+      - 🍎
+      - 🍊
+      -
+        - Sugar
+        - Eggs
+        - Chocolate
+      # Block & Flow-Style
+      - 🍎
+      - 🍊
+      - [Sugar, Eggs, Chocolate]
+    \end{minted}
+  \end{block}
+\end{frame}
+
+\subsection{🗺 Map}
+
+\begin{frame}[fragile]{🗺 Map}
+  \begin{block}{Ungeordnete Paare von Werten}
+    \textcolor{gray}{Assoziatives (Array|Feld), Dictionary, Hash(map|table)?}\\
+    \begin{minted}[autogobble]{yaml}
+      # Flow-Style
+      { Austria: Vienna,
+        South Africa: {Executive: Pretoria,
+          Judicial: Bloemfontein, Legislative: Cape Town}}
+      # Block-Style
+      Austria: Vienna
+      South Africa:
+        Executive:   Pretoria
+        Judicial:    Bloemfontein
+        Legislative: Cape Town
+    \end{minted}
+  \end{block}
+\end{frame}
+
 \end{document}
