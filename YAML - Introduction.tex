@@ -8,6 +8,7 @@
 
 \usepackage{minted}
 \usepackage{polyglossia}
+\usepackage{tcolorbox}
 \usepackage{tikz}
 \usepackage{xltxtra}
 \usepackage{xelatexemoji}
@@ -29,6 +30,22 @@
 % ============
 % = Settings =
 % ============
+
+\newtcbox{\codebox}{
+  on line,
+  arc = 0pt,
+  outer arc = 0pt,
+  colback = gray!10!white,
+  colframe = gray!50!black,
+  boxsep = 0pt,
+  left = 1pt,
+  right = 1pt,
+  top = 2pt,
+  bottom = 2pt,
+  boxrule = 0pt,
+  bottomrule = 1pt,
+  toprule = 1pt
+}
 
 % Code
 \usemintedstyle{rainbow_dash}
@@ -78,6 +95,14 @@
 \setbeamercovered{transparent=20}
 
 \setbeamerfont{title}{series=\Helvetica, size={\fontsize{48}{48}}}
+
+% ==========
+% = Macros =
+% ==========
+
+\newcommand{\code}[1]{
+  \codebox{\mintinline{yaml}|#1|}
+}
 
 % ============
 % = Document =
@@ -215,6 +240,58 @@
         Legislative: Cape Town
     \end{minted}
   \end{block}
+\end{frame}
+
+% - Datentypen
+% - Directives
+% - Streams
+\section{✨ Features}
+\subsection{✒️ Skalare}
+
+\subsubsection{🌊 Flow Style}
+
+\begin{frame}[fragile]{🌊 Flow Style}
+  \begin{enumerate}
+    \item \code{Plain}
+    \begin{itemize}
+      \item Gute Lesbarkeit
+      \item Kombinationen \codebox{\#~~~} , \code{: ⁣} nicht möglich
+      \item Indikatoren (\code{:}, \code{[}, …) nur in Spezialfällen als erstes Zeichen erlaubt
+    \end{itemize}
+    \item \code{'Single Quoted'}
+    \begin{itemize}
+      \item Ähnlich gut lesbar wie Plain Style
+      \item Bis auf \code{'} keine Sonderzeichen
+    \end{itemize}
+    \item \code{"Double Quoted"}
+    \begin{itemize}
+      \item Unterstützung für Escape Sequences:\\ \code{\n}, \codebox{{\textbackslash}x0a}, \codebox{{\textbackslash}u000a}, \codebox{{\textbackslash}U0000000a}, …
+      \item alle Strings darstellbar
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\subsubsection{🗒 Block Style}
+
+\begin{frame}[fragile, allowframebreaks]{🗒 Block Style}
+  \begin{enumerate}
+    \item
+    \begin{minted}[autogobble, bgcolor = gray!10!white]{yaml}
+      |
+        Literal
+    \end{minted}
+    \begin{itemize}
+      \item Newlines (\code{\n}) werden direkt übernommen
+    \end{itemize}
+    \item
+    \begin{minted}[autogobble, bgcolor = gray!10!white]{yaml}
+      >
+        Folded
+    \end{minted}
+    \begin{itemize}
+      \item Erstes Newline-Zeichen wird durch Space ersetzt, falls es keine führenden Leerzeichen in der nächsten nicht-leeren Zeile gibt
+    \end{itemize}
+  \end{enumerate}
 \end{frame}
 
 \end{document}
