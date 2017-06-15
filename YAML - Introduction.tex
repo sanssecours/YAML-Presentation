@@ -12,6 +12,7 @@
 \usepackage{tikz}
 \usepackage{xltxtra}
 \usepackage{xelatexemoji}
+\usepackage{unicode-math}
 
 % ==============
 % = Attributes =
@@ -318,6 +319,63 @@
       \item Erstes Newline-Zeichen wird durch Space ersetzt, falls es keine führenden Leerzeichen in der nächsten nicht-leeren Zeile gibt
     \end{itemize}
   \end{enumerate}
+
+  \newpage
+  \begin{tikzpicture}[overlay, remember picture]
+  \node[anchor=center] at (current page.center) {
+	\begin{columns}
+
+    \column{.50\textwidth}
+    \begin{minted}[autogobble, showspaces, spacecolor = lightgray, space=·]{yaml}
+      >
+        One
+        Two
+
+        List:
+         * Item 1
+         * Item 2
+      # "One Two\nList:\n\ \
+      #  * Item 1\n * Item 2\n"
+    \end{minted}
+
+    \column{.50\textwidth}
+    \begin{minted}[autogobble, showspaces, spacecolor = lightgray, space=·]{yaml}
+      |
+        One
+        Two
+
+        List:
+         * Item 1
+         * Item 2
+      # "One\nTwo\n\nList:\n\ \
+      #  * Item 1\n * Item 2\n"
+    \end{minted}
+  \end{columns}};
+  \end{tikzpicture}
+
+  \newpage
+  \begin{block}{Block Scalar Header}
+    \begin{enumerate}
+      \item Indentation Header \codebox{\texttt{|4}}, \code{>2}, \code{>5}, …
+      \begin{itemize}
+        \item Spezifiziert Einrückung des Blocks
+        \item Kein Indentation Header $⇔$ Automatische Detektion
+        \item Erste Zeilen enthalten zusätzliche Leerzeichen $⇔$ \\
+              \alert{Fehler bei Auto-Detektion}
+      \end{itemize}
+      \item Chomping Header \codebox{\texttt{|-}}, \codebox{\texttt{|+}}, \code{>-}, \code{>+}
+      \begin{itemize}
+        \item Spezifiziert Bedeutung der leeren Zeilen \alert{am Ende}
+        \begin{enumerate}
+          \item Strip \code{-}: Leere Zeilen werden verworfen
+          \item Keep \code{+}: Leere Zeilen werden gespeichert
+          \item Clip (Kein Indikator): Leere Zeilen werden durch \code{\n} ersetzt
+        \end{enumerate}
+      \end{itemize}
+    \end{enumerate}
+    Beliebige Kombinationen \codebox{\texttt{|-8}}, \code{>4+}, … möglich
+  \end{block}
+
 \end{frame}
 
 \end{document}
