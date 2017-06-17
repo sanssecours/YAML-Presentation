@@ -378,4 +378,24 @@
 
 \end{frame}
 
+\subsection{🗃 Stream}
+
+\begin{frame}[fragile]{🗃 Stream}
+  \begin{itemize}
+    \item YAML Stream: Mehrere Dokumente hintereinander
+    \item Document-End-Marker \code{...} trennt einzelne Dokumente
+    \item Optionaler Directives-End-Marker \code{---} trennt “Directives” von eigentlichem Inhalt
+  \end{itemize}
+  \begin{minted}[autogobble]{yaml}
+    %YAML 1.2 # Directive
+    ---
+    "Hello First Document"
+    ...
+    Document without Directives
+    ...
+    %TAG ! example.uri
+    ---
+    'Third Document'
+  \end{minted}
+\end{frame}
 \end{document}
