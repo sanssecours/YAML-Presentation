@@ -426,4 +426,99 @@
   \end{minted}
 \end{frame}
 
+\subsection{🐠🐙🐶 Typen}
+
+\subsubsection{🏷 Tags}
+
+\begin{frame}[allowframebreaks, fragile]{🏷 Tags}
+  \begin{itemize}
+    \item Optionaler Tag spezifiziert Datentyp
+    \item Ohne Tag $⇒$ automatische Erkennung von Typ
+    \item 3 verschiedene Arten von Tags
+    \begin{enumerate}
+      \item Verbatim \code{!<!local>}, \code{!<global>}
+      \item Shorthand \code{!suffix}, \code{!!suffix}, \code{!named!suffix}
+      \item Non-Specific \code{!}
+    \end{enumerate}
+    \item Verbatim Tags
+    \begin{description}
+      \item [Local Tag] Unterschiedliche Bedeutung je nach Anwendung (Bsp: \code{!<!ruby/object:Set>})
+      \item [Global Tag] Bedeutung eindeutig\\
+            (Beispiel: \code{!<tag:yaml.org,2002:int>})
+    \end{description}
+    \item Non Specific Tag \code{!} (nur bei Non-Plain Skalar)
+    \item Shorthand-Tags und Non-Specific Tags werden zu Verbatim Tag erweitert
+  \end{itemize}
+
+  \newpage
+
+  \begin{block}{Umwandlung von Shorthand/Non-Specific $⇒$ Verbatim}
+    \begin{minted}[autogobble]{yaml}
+      # %TAG  shorthand     definition
+      %TAG     !name!    tag:yaml.org,2002:
+      ---
+      # shorthand|suffix ➡️ !<definition|suffix>
+      !suffix      value # !<!suffix>                  value
+      !!suffix     value # !<tag:yaml.org,2002:suffix> value
+      !name!suffix value # !<tag:yaml.org,2002:suffix> value
+      !            value # !<tag:yaml.org,2002:str>    value
+      ...
+      %TAG !name! lego.block/ # Specify new prefix for shorthand
+      ---
+      !name!suffix value # !<lego.block/suffix> value
+    \end{minted}
+  \end{block}
+
+\end{frame}
+
+\subsubsection{🍳 Schemas}
+
+\begin{frame}[allowframebreaks, fragile]{🍳 Schemas}
+  \begin{itemize}
+    \item 3 Vordefinierte Schema (Kategorien) für Typen (Tags)
+    \begin{enumerate}
+      \item Failsafe Schema
+      \begin{description}
+        \item [String] \code{!!str Text}
+        \item [Sequence] \code{!!seq [Item1, Item2]}
+        \item [Mapping] \code{!!map {Key: Value}}
+      \end{description}
+      \item JSON Schema (Failsafe Schema + JSON Typen)
+      \begin{description}
+        \item [Null] \code{!!null null: value of null key}
+        \item [Boolean] \code{!!bool false}
+        \item [Integer] \code{!!int -42}
+        \item [Float] \code{!!float .nan}
+      \end{description}
+      \item Core Schema (JSON Schema + Erweiterte Daten-Eingabe)
+      \begin{itemize}
+        \item Octal- \code{0o123} und Hexadezimal-Format \code{0xfefe}
+        \item Mehr Schreibweisen für spezielle Werte \\
+              z.B. \code{null}, \code{Null}, \code{~}, \code{NULL}
+      \end{itemize}
+    \end{enumerate}
+  \end{itemize}
+
+  \newpage
+  \begin{itemize}
+    \item Zusätzliche Typen (\textcolor{orange}{\url{http://yaml.org/type}})
+    \begin{description}[labelwidth=1cm]
+      \item [Ordered Map] \code{!!omap [first: 1, second: 2]}
+      \item [Set] \code{!!set {No, Order}}
+      \item [Binary] \code{!!binary "YmFzZTY0Cg=="}
+      \item [Time] \code{!!timestamp 1337-12-24}
+      \item […]
+    \end{description}
+    \item Eigene Datentypen können z.B. mittels Local Tag eingeführt werden
+    \begin{minted}[autogobble]{yaml}
+      # print(Set.new([false, 1, '2']).to_yaml)
+      --- !ruby/object:Set
+      hash:
+        false: true
+        1: true
+        '2': true
+    \end{minted}
+  \end{itemize}
+\end{frame}
+
 \end{document}
