@@ -398,4 +398,32 @@
     'Third Document'
   \end{minted}
 \end{frame}
+
+\subsection{📢 Directives}
+
+\begin{frame}[fragile]{📢 Directives}
+  Anweisungen vor dem eigentlichen Dokument spezifizieren:
+  \begin{enumerate}
+    \item YAML Version \codebox{\texttt{\%YAML}}
+    \item Prefix für Tag-Shorthands \codebox{\texttt{\%TAG}}
+    \begin{itemize}
+      \item Primary und Secondary Tag-Shorthand sind vordefiniert auf
+      \begin{minted}[autogobble]{yaml}
+        %TAG !  !
+        %TAG !! tag:yaml.org,2002:
+      \end{minted}
+    \end{itemize}
+  \end{enumerate}
+  \begin{minted}[autogobble]{yaml}
+    # Directives
+    %YAML 1.2                       # YAML Version
+    %TAG ! tag:yaml.org,2002:       # Primary Tag Handle
+    %TAG !! tag:yaml.org,2002:      # Secondary Tag Handle
+    %TAG !named! tag:yaml.org,2002: # Named Tag Handle
+    --- # Directives End Marker
+    [!!str 6, !str 6, !named!str 6, ! 6,
+     '6', !<tag:yaml.org,2002:str> 6] # 6 times "6"
+  \end{minted}
+\end{frame}
+
 \end{document}
