@@ -521,4 +521,26 @@
   \end{itemize}
 \end{frame}
 
+\subsection{⚓️ Anchors \& Aliases}
+
+\begin{frame}[fragile]{⚓️ Anchors \& Aliases}
+  \begin{itemize}
+    \item Dienen dazu selbes Datum öfters wiederzuverwenden
+    \item Anchor \code{&name} verweist auf Datum
+    \item Referenz \code{*name} fügt Datum an neuer Stelle ein
+    \begin{minted}[autogobble]{yaml}
+      green: &green
+        🌳🌱🌿🌱🌿🌱🌿🌳
+      flowers: &flowers
+        🌳🌸🌼🌻🌺🌼🌸🌳
+      garden:              # print(data['garden']):
+        - *green           # 🌳🌱🌿🌱🌿🌱🌿🌳
+        - *flowers         # 🌳🌸🌼🌻🌺🌼🌸🌳
+        - 🌳🌱🐞🌱🌱🐛🌱🌳 # 🌳🌱🐞🌱🌱🐛🌱🌳
+        - *flowers         # 🌳🌸🌼🌻🌺🌼🌸🌳
+        - *green           # 🌳🌱🌿🌱🌿🌱🌿🌳
+    \end{minted}
+  \end{itemize}
+\end{frame}
+
 \end{document}
