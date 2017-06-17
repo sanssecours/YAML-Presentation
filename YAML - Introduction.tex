@@ -6,6 +6,7 @@
 % = Packages =
 % ============
 
+\usepackage{etoolbox}
 \usepackage{minted}
 \usepackage{polyglossia}
 \usepackage{tcolorbox}
@@ -63,6 +64,8 @@
 
 % Code
 \usemintedstyle{rainbow_dash}
+\BeforeBeginEnvironment{minted}{\begin{codeboxed}}
+\AfterEndEnvironment{minted}{\end{codeboxed}}
 
 % Colors
 \definecolor{Aqua}{rgb}{0, 0.56, 1}
@@ -168,19 +171,20 @@
 \subsection{😱 Flow Style}
 
 \begin{frame}[fragile]{😱 Flow Style}
-  \begin{block}{Dokument der vorhergehenden Folie in reinem Flow-Style}
+  \begin{block}{Dokument in reinem Flow-Style}~\\
     \begin{minted}[autogobble]{yaml}
-    [{'Abkürzung':
-       [{'Früher': 'Yet Another Markup Language'},
-        {'Heute': 'YAML Ain’t Markup Language'}]},
-     {'Aktuelle Version': 'YAML 1.2 (2009)'},
-     'Superset von JSON',
-     {'3 verschiedene Datentypen':
-        [{'Skalar': ['Hello World', '👋 🌍', 123]},
-         {'Sequenz': ['Text', 'Text', 'Text', 123.5]},
-         {'Map': {'🔑': 'Value', 'see-no-evil monkey': '🙈'}}]},
-     {'Hauptziel': '“YAML is easily readable by humans.”'}]
-    # Kompletter Text auf dieser Folie ist valides YAML
+      [{'Abkürzung':
+         [{'Früher': 'Yet Another Markup Language'},
+          {'Heute': 'YAML Ain’t Markup Language'}]},
+       {'Aktuelle Version': 'YAML 1.2 (2009)'},
+       'Superset von JSON',
+       {'3 verschiedene Datentypen':
+          [{'Skalar': ['Hello World', '👋 🌍', 123]},
+           {'Sequenz': ['Text', 'Text', 'Text', 123.5]},
+           {'Map': {'🔑': 'Value',
+                    'see-no-evil monkey': '🙈'}}]},
+       {'Hauptziel': '“YAML is easily readable by humans.”'}]
+      # Kompletter Text auf dieser Folie ist valides YAML
     \end{minted}
   \end{block}
 \end{frame}
@@ -197,21 +201,21 @@
     \begin{itemize}
       \item Strings
       \begin{itemize}
-        \item \mintinline{yaml}|Plain String|
-        \item \mintinline{yaml}|'Single Quoted String'|
-        \item \mintinline{yaml}|"Double Quoted String"|
-        \item \mintinline{yaml}|'1337'|
-        \item \mintinline{yaml}|!!str 1337 # Explizite Typspezifikation|
+        \item \codebox{\mintinline{yaml}|Plain String|}
+        \item \codebox{\mintinline{yaml}|'Single Quoted String'|}
+        \item \codebox{\mintinline{yaml}|"Double Quoted String"|}
+        \item \codebox{\mintinline{yaml}|'1337'|}
+        \item \codebox{\mintinline{yaml}|!!str 1337|} (Explizite Typspezifikation)
       \end{itemize}
       \item Ganzzahlen
       \begin{itemize}
-        \item \mintinline{yaml}|1337|
-        \item \mintinline{yaml}|!!int 1337 # Explizite Typspezifikation|
+        \item \codebox{\mintinline{yaml}|1337|}
+        \item \codebox{\mintinline{yaml}|!!int 1337|} (Explizite Typspezifikation)
       \end{itemize}
       \item Fließkommazahlen
       \begin{itemize}
-        \item \mintinline{yaml}|0.1337|
-        \item \mintinline{yaml}|!!float 0.1337 # Explizite Typspezifikation|
+        \item \codebox{\mintinline{yaml}|0.1337|}
+        \item \codebox{\mintinline{yaml}{!!float 0.1337}} (Explizite Typspezifikation)
       \end{itemize}
     \end{itemize}
   \end{itemize}
@@ -220,7 +224,7 @@
 \subsection{📋 Sequenz}
 
 \begin{frame}[fragile]{📋 Sequenz}
-  \begin{block}{Folge von Werten \textcolor{gray}{(Array, Feld, Liste)}}
+  \begin{block}{Folge von Werten \textcolor{gray}{(Array, Feld, Liste)}}~\\
     \begin{minted}[autogobble]{yaml}
       # Flow-Style
       [🍎, 🍊, [Sugar, Eggs, Chocolate]]
@@ -242,7 +246,7 @@
 
 \begin{frame}[fragile]{🗺 Map}
   \begin{block}{Ungeordnete Paare von Werten}
-    \textcolor{gray}{Assoziatives (Array|Feld), Dictionary, Hash(map|table)?}\\
+    \textcolor{gray}{Assoziatives (Array|Feld), Dictionary, Hash(map|table)?}\\\\
     \begin{minted}[autogobble]{yaml}
       # Flow-Style
       { Austria: Vienna,
@@ -291,31 +295,29 @@
 
 \begin{frame}[fragile, allowframebreaks]{🗒 Block Style}
   \begin{enumerate}
+
     \item
-    \begin{codeboxed}
       \begin{minted}[autogobble]{yaml}
         |
           Literal
           Style
         # "Literal\nStyle"
       \end{minted}
-    \end{codeboxed}
-    \begin{itemize}
-      \item Newlines (\code{\n}) werden direkt übernommen
-    \end{itemize}
-    \item
+      \begin{itemize}
+        \item Newlines (\code{\n}) werden direkt übernommen
+      \end{itemize}
 
-    \begin{codeboxed}
+    \item
       \begin{minted}[autogobble]{yaml}
         >
           Folded
           Style
         # "Folded Style"
       \end{minted}
-    \end{codeboxed}
-    \begin{itemize}
-      \item Erstes Newline-Zeichen wird durch Space ersetzt, falls es keine führenden Leerzeichen in der nächsten nicht-leeren Zeile gibt
+      \begin{itemize}
+        \item Erstes Newline-Zeichen wird durch Space ersetzt, falls es keine führenden Leerzeichen in der nächsten nicht-leeren Zeile gibt
     \end{itemize}
+
   \end{enumerate}
 
   \newpage
@@ -405,7 +407,7 @@
     \item YAML Version \codebox{\texttt{\%YAML}}
     \item Prefix für Tag-Shorthands \codebox{\texttt{\%TAG}}
     \begin{itemize}
-      \item Primary und Secondary Tag-Shorthand sind vordefiniert auf
+      \item Primary und Secondary Tag-Shorthand sind vordefiniert:
       \begin{minted}[autogobble]{yaml}
         %TAG !  !
         %TAG !! tag:yaml.org,2002:
@@ -450,7 +452,7 @@
 
   \newpage
 
-  \begin{block}{Umwandlung von Shorthand/Non-Specific $⇒$ Verbatim}
+  \begin{block}{Umwandlung von Shorthand/Non-Specific $⇒$ Verbatim}~\\
     \begin{minted}[autogobble]{yaml}
       # %TAG  shorthand     definition
       %TAG     !name!    tag:yaml.org,2002:
@@ -461,7 +463,7 @@
       !name!suffix value # !<tag:yaml.org,2002:suffix> value
       !            value # !<tag:yaml.org,2002:str>    value
       ...
-      %TAG !name! lego.block/ # Specify new prefix for shorthand
+      %TAG !name! lego.block/ # New prefix for shorthand
       ---
       !name!suffix value # !<lego.block/suffix> value
     \end{minted}
@@ -500,14 +502,14 @@
   \newpage
   \begin{itemize}
     \item Zusätzliche Typen (\textcolor{orange}{\url{http://yaml.org/type}})
-    \begin{description}[labelwidth=1cm]
+    \begin{description}[labelwidth = 1cm]
       \item [Ordered Map] \code{!!omap [first: 1, second: 2]}
       \item [Set] \code{!!set {No, Order}}
       \item [Binary] \code{!!binary "YmFzZTY0Cg=="}
       \item [Time] \code{!!timestamp 1337-12-24}
       \item […]
     \end{description}
-    \item Eigene Datentypen können z.B. mittels Local Tag eingeführt werden
+    \item Eigene Datentypen z.B. mittels Local Tag~\\[0.5cm]
     \begin{minted}[autogobble]{yaml}
       # print(Set.new([false, 1, '2']).to_yaml)
       --- !ruby/object:Set
@@ -525,7 +527,7 @@
   \begin{itemize}
     \item Dienen dazu selbes Datum öfters wiederzuverwenden
     \item Anchor \code{&name} verweist auf Datum
-    \item Referenz \code{*name} fügt Datum an neuer Stelle ein
+    \item Referenz \code{*name} fügt Datum an neuer Stelle ein~\\[0.5cm]
     \begin{minted}[autogobble]{yaml}
       green: &green
         🌳🌱🌿🌱🌿🌱🌿🌳
