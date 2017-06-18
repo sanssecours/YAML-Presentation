@@ -1,4 +1,4 @@
-# Minimal Useful 🐪 YAML Features
+# “Minimally” Useful 🐪 YAML Features for Elektra
 
 ## 📏 Scalars
 
