@@ -111,7 +111,27 @@
 
 \setbeamerfont{title}{series=\Helvetica, size={\fontsize{48}{48}}}
 
-\AtBeginSection{\frame{\sectionpage}}
+\AtBeginSection
+{
+  \begin{frame}{}
+    \tableofcontents[
+      sectionstyle = show/shaded,
+      subsectionstyle = show/shaded/hide,
+      subsubsectionstyle = show/hide,
+  ]
+  \end{frame}
+}
+
+\AtBeginSubsection
+{
+  \begin{frame}{}
+    \tableofcontents[
+      sectionstyle = shaded/hide,
+      subsectionstyle = show/shaded/hide,
+      subsubsectionstyle = show/show/hide,
+  ]
+  \end{frame}
+}
 
 % ==========
 % = Macros =
@@ -141,9 +161,6 @@
   \end{frame}
 }
 
-\begin{frame}{Inhalt}
-    \tableofcontents
-\end{frame}
 \section{👁 Overview}
 \subsection{🐪 Introduction}
 
