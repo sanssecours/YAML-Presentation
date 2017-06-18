@@ -1,6 +1,6 @@
-# Minimal Useful YAML Features
+# Minimal Useful 🐪 YAML Features
 
-## Scalars
+## 📏 Scalars
 
 - [ ] Flow Scalars
   - [ ] Plain (`Some Data`)
@@ -26,7 +26,7 @@
   - [ ] Indentation Header (`> 1`, `| 4`)
   - [ ] Chomping Header (`|- `, `> +`)
 
-## Mappings
+## 🗺 Mappings
 
 - [ ] Flow Style (`{key: value, another key: another value}`)
 - [ ] Block Style
@@ -46,7 +46,7 @@
     : value
     ```
 
-## Lists
+## 📋 Lists
 
 - [ ] Flow Style (`[value 1, value 2]`)
 - [ ] Block Style
@@ -56,9 +56,9 @@
     - value 2
     ```
 
-## Types
+## 🐠🐙🐶 Types
 
-###  Tags
+###  🏷 Tags
 
 #### Tag Shorthands
 
@@ -75,7 +75,7 @@
 
 - [ ] Non-Specific Tag (`!`)
 
-### Schemas
+### 📚 Schemas
 
 - [ ] Failsafe Schema (`!!str`, `!!seq`, `!!map` )
 - [ ] JSON Schema (Failsafe Schema  + `!!null`, `!!bool`, `!!int`, `float`)
@@ -83,12 +83,12 @@
 - [ ] Additional Types (`!!omap`, `!!set`, `!!binary`, …)
   - Which Ones:
 
-## Directives
+## 📢 Directives
 
 - [ ] YAML Version (`%YAML 1.2`)
 - [ ] TAG Handle Definition (`%TAG !! tag:yaml.org,2002:`)
 
-## Other
+## 🥙 Misc
 
 - [ ] Multiple Documents (Streams)
 - [ ] Anchors & Aliases
