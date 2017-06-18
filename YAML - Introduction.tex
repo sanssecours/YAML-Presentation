@@ -46,7 +46,7 @@
   toprule = 0pt
 }
 
-\newtcolorbox{codeboxed}{
+\newtcolorbox{code-boxed}{
   on line,
   arc = 2pt,
   colback = gray!10!white,
@@ -62,8 +62,8 @@
 
 % Code
 \usemintedstyle{rainbow_dash}
-\BeforeBeginEnvironment{minted}{\begin{codeboxed}}
-\AfterEndEnvironment{minted}{\end{codeboxed}}
+\BeforeBeginEnvironment{minted}{\begin{code-boxed}}
+\AfterEndEnvironment{minted}{\end{code-boxed}}
 
 % Colors
 \definecolor{Aqua}{rgb}{0, 0.56, 1}
