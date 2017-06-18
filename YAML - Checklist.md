@@ -2,11 +2,11 @@
 
 ## 📏 Scalars
 
-- [ ] Flow Scalars
+- Flow Scalars
   - [ ] Plain (`Some Data`)
   - [ ] Single Quoted (`'Single Quotes'`)
   - [ ] Double Quoted (`"First Line\nSecond Line"`)
-- [ ] Block Scalars
+- Block Scalars
   - [ ] Folded
 
     ```yaml
@@ -80,7 +80,7 @@
 - [ ] Failsafe Schema (`!!str`, `!!seq`, `!!map` )
 - [ ] JSON Schema (Failsafe Schema  + `!!null`, `!!bool`, `!!int`, `float`)
 - [ ] Core Schema (JSON Schema + `0x9abc`, `0o678`, `~`, …)
-- [ ] Additional Types (`!!omap`, `!!set`, `!!binary`, …)
+- [ ] Additional Types (`!!omap`, `!!set`, `!!binary`, `!!timestamp`, …)
   - Which Ones:
 
 ## 📢 Directives
