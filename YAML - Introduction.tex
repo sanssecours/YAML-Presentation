@@ -21,7 +21,7 @@
 
 \newcommand{\Title}{YAML}
 \newcommand{\Subject}{Introductory Presentation about\texorpdfstring{\\}{}
-                      the Serialization Language YAML}
+                      the Data Serialization Language YAML}
 \newcommand{\KeyWords}{YAML, Serialization}
 
 \newcommand{\Author}{René Schwaiger}
@@ -337,7 +337,7 @@
         # "Folded Style"
       \end{minted}
       \begin{itemize}
-        \item Replaces first Newline-Character with space, if the next non-empty line does not contain leading whitespace characters.
+        \item Replaces first newline character with space, if the next non-empty line does not contain leading whitespace characters.
     \end{itemize}
 
   \end{enumerate}
@@ -389,8 +389,8 @@
     \begin{enumerate}
       \item Indentation Header \codebox{\texttt{|4}}, \code{>2}, \code{>5}, …
       \begin{itemize}
-        \item Specifies Indentation of Block
-        \item No Indentation Header $⇔$ Automatic Detection
+        \item Specifies indentation of block
+        \item No indentation header $⇔$ Automatic detection
         \item First lines contain additional whitespace $⇔$ \\
               \alert{Auto-Detection fails}
       \end{itemize}
@@ -400,11 +400,11 @@
         \begin{enumerate}
           \item Strip \code{-}: Remove trailing whitespace
           \item Keep \code{+}: Save trailing whitespace
-          \item Clip (No Indicator): Empty lines replaced with \code{\n}
+          \item Clip (No Indicator): Replace empty lines with \code{\n}
         \end{enumerate}
       \end{itemize}
     \end{enumerate}
-    Arbitrary combinations \codebox{\texttt{|-8}}, \code{>4+}, … possible
+    Arbitrary combinations (e.g. \codebox{\texttt{|-8}}, \code{>4+}) possible
   \end{block}
 
 \end{frame}
