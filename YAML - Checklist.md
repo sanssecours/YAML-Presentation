@@ -23,7 +23,7 @@
       Two
     ```
 
-  - [ ] Indentation Header (`> 1`, `| 4`)
+  - [ ] Indentation Header (`>1`, `|4`)
   - [ ] Chomping Header (`|- `, `> +`)
 
 ## 🗺 Mappings
