@@ -241,17 +241,29 @@
 \subsection{📋 Sequence}
 
 \begin{frame}[fragile]{📋 Sequence}
-  \begin{block}{Sequence of Values \textcolor{gray}{(Array, List)}}~\\
+  \begin{block}{Sequence of Values \textcolor{gray}{(Array, List)}}
+    \vspace{0.3cm}
+
     \begin{minted}[autogobble]{yaml}
-      # Flow-Style
+      # Flow Style
       [🍎, 🍊, [Sugar, Eggs, Chocolate]]
-      # Block-Style
+    \end{minted}
+
+    \vspace{0.1cm}
+
+    \begin{minted}[autogobble]{yaml}
+      # Block Style
       - 🍎
       - 🍊
       - - Sugar
         - Eggs
         - Chocolate
-      # Block & Flow-Style
+    \end{minted}
+
+    \vspace{0.1cm}
+
+    \begin{minted}[autogobble]{yaml}
+      # Mixed
       - 🍎
       - 🍊
       - [Sugar, Eggs, Chocolate]
@@ -263,18 +275,30 @@
 
 \begin{frame}[fragile]{🗺 Map}
   \begin{block}{Unordered Pairs of Values}
-    \textcolor{gray}{(Associative Array, Dictionary, Hash, Hashmap, Hashtable)}\\\\
+    \textcolor{gray}{(Associative Array, Dictionary, Hash, Hashmap, Hashtable)}
+    \vspace{0.2cm}
+
     \begin{minted}[autogobble]{yaml}
       # Flow-Style
       { Austria: Vienna,
         South Africa: {Executive: Pretoria,
           Judicial: Bloemfontein, Legislative: Cape Town}}
+    \end{minted}
+
+    \vspace{0.1cm}
+
+    \begin{minted}[autogobble]{yaml}
       # Block-Style
       Austria: Vienna
       South Africa:
         Executive:   Pretoria
         Judicial:    Bloemfontein
         Legislative: Cape Town
+    \end{minted}
+
+    \vspace{0.1cm}
+
+    \begin{minted}[autogobble]{yaml}
       # Complex Key (`?` optional für simple Keys)
       ? [Pretoria, Bloemfontein, Cape Town]
       : South Africa
