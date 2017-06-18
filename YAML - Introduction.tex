@@ -20,9 +20,9 @@
 % ==============
 
 \newcommand{\Title}{YAML}
-\newcommand{\Subject}{Einführende Präsentation zur\texorpdfstring{\\}{}
-                      Daten-Serialisierungssprache YAML}
-\newcommand{\KeyWords}{YAML, Serialisierung}
+\newcommand{\Subject}{Introductory Presentation about\texorpdfstring{\\}{}
+                      the Serialization Language YAML}
+\newcommand{\KeyWords}{YAML, Serialization}
 
 \newcommand{\Author}{René Schwaiger}
 \newcommand{\Mail}{\href{mailto:sanssecours@me.com}{sanssecours@me.com}}
@@ -144,58 +144,60 @@
 \begin{frame}{Inhalt}
     \tableofcontents
 \end{frame}
+\section{👁 Overview}
+\subsection{🐪 Introduction}
 
-\section{🐪 Allgemeines}
-
-\begin{frame}[fragile]{🐪 Allgemeines}
+\begin{frame}[fragile]{🐪 Introduction}
   \begin{minted}[autogobble]{yaml}
-    - Abkürzung:
-       - Früher: Yet Another Markup Language
-       - Heute: YAML Ain’t Markup Language
-    - Aktuelle Version: YAML 1.2 (2009)
-    - Superset von JSON # seit YAML 1.2
-    - 3 verschiedene Datentypen:
-      - Skalar:
+    - Abbreviation:
+       - At First: Yet Another Markup Language
+       - Today: YAML Ain’t Markup Language
+    - Current Version: YAML 1.2 (2009)
+    - Superset of JSON # since YAML 1.2
+    - 3 Different Data Types:
+      - Scalar:
         - "Hello World"
         - '👋 🌍'
         - 123
-      - Sequenz: [Text, 'Text', "Text", 123.5]
+      - Sequence: [Text, 'Text', "Text", 123.5]
       - Map: {🔑: Value, see-no-evil monkey: 🙈}
-    - Hauptziel: “YAML is easily readable by humans.”
-    # Kompletter Text auf dieser Folie ist valides YAML
+    - Most Important Goal:
+        “YAML is easily readable by humans.”
+    # All of the text on this slide is valid YAML
   \end{minted}
 \end{frame}
 
 \subsection{😱 Flow Style}
 
 \begin{frame}[fragile]{😱 Flow Style}
-  \begin{block}{Dokument in reinem Flow-Style}~\\
+  \begin{block}{Previous Document in Pure Flow Style}~\\
     \begin{minted}[autogobble]{yaml}
-      [{'Abkürzung':
-         [{'Früher': 'Yet Another Markup Language'},
-          {'Heute': 'YAML Ain’t Markup Language'}]},
-       {'Aktuelle Version': 'YAML 1.2 (2009)'},
-       'Superset von JSON',
-       {'3 verschiedene Datentypen':
-          [{'Skalar': ['Hello World', '👋 🌍', 123]},
-           {'Sequenz': ['Text', 'Text', 'Text', 123.5]},
-           {'Map': {'🔑': 'Value',
-                    'see-no-evil monkey': '🙈'}}]},
-       {'Hauptziel': '“YAML is easily readable by humans.”'}]
-      # Kompletter Text auf dieser Folie ist valides YAML
+      [{"Abbreviation":
+        [{"At First": "Yet Another Markup Language"},
+         {"Today": "YAML Ain’t Markup Language"}]},
+       {"Current Version": "YAML 1.2 (2009)"},
+       "Superset of JSON", # since YAML 1.2
+       {"3 Different Data Types":
+         [{"Scalar": ["Hello World", "👋 🌍", 123]},
+          {"Sequence": ["Text", "Text", "Text", 123.5]},
+          {"Map": {"🔑": "Value",
+                   "see-no-evil monkey": "🙈"}}]},
+       {"Most Important Goal":
+         "“YAML is easily readable by humans.”"}]
+      # All of the text on this slide is valid YAML
     \end{minted}
   \end{block}
 \end{frame}
 
-\section{🐣 Einfache Datentypen}
+\section{🐣 Basic Data Types}
 
-\subsection{📏  Skalar}
+\subsection{📏  Scalar}
 
-\begin{frame}[fragile]{📏 Skalar}
+\begin{frame}[fragile]{📏 Scalar}
   \begin{itemize}
-    \item Einfachster Typ
-    \item Speichert Zahlen, Zeichenketten
-    \item Beispiele
+    \item Most Basic Type
+    \item Saves Numbers, Strings
+    \item Examples
     \begin{itemize}
       \item Strings
       \begin{itemize}
@@ -203,26 +205,26 @@
         \item \codebox{\mintinline{yaml}|'Single Quoted String'|}
         \item \codebox{\mintinline{yaml}|"Double Quoted String"|}
         \item \codebox{\mintinline{yaml}|'1337'|}
-        \item \codebox{\mintinline{yaml}|!!str 1337|} (Explizite Typspezifikation)
+        \item \codebox{\mintinline{yaml}|!!str 1337|} (Explicit Type Specification)
       \end{itemize}
-      \item Ganzzahlen
+      \item Integers
       \begin{itemize}
         \item \codebox{\mintinline{yaml}|1337|}
-        \item \codebox{\mintinline{yaml}|!!int 1337|} (Explizite Typspezifikation)
+        \item \codebox{\mintinline{yaml}|!!int 1337|}
       \end{itemize}
-      \item Fließkommazahlen
+      \item Floating Point Numbers
       \begin{itemize}
         \item \codebox{\mintinline{yaml}|0.1337|}
-        \item \codebox{\mintinline{yaml}{!!float 0.1337}} (Explizite Typspezifikation)
+        \item \codebox{\mintinline{yaml}{!!float 0.1337}}
       \end{itemize}
     \end{itemize}
   \end{itemize}
 \end{frame}
 
-\subsection{📋 Sequenz}
+\subsection{📋 Sequence}
 
-\begin{frame}[fragile]{📋 Sequenz}
-  \begin{block}{Folge von Werten \textcolor{gray}{(Array, Feld, Liste)}}~\\
+\begin{frame}[fragile]{📋 Sequence}
+  \begin{block}{Sequence of Values \textcolor{gray}{(Array, List)}}~\\
     \begin{minted}[autogobble]{yaml}
       # Flow-Style
       [🍎, 🍊, [Sugar, Eggs, Chocolate]]
@@ -243,8 +245,8 @@
 \subsection{🗺 Map}
 
 \begin{frame}[fragile]{🗺 Map}
-  \begin{block}{Ungeordnete Paare von Werten}
-    \textcolor{gray}{Assoziatives (Array|Feld), Dictionary, Hash(map|table)?}\\\\
+  \begin{block}{Unordered Pairs of Values}
+    \textcolor{gray}{(Associative Array, Dictionary, Hash, Hashmap, Hashtable)}\\\\
     \begin{minted}[autogobble]{yaml}
       # Flow-Style
       { Austria: Vienna,
@@ -264,7 +266,7 @@
 \end{frame}
 
 \section{✨ Features}
-\subsection{📝 Eingabe von Skalaren}
+\subsection{📝 Scalar Input}
 
 \subsubsection{🌊 Flow Style}
 
@@ -272,19 +274,19 @@
   \begin{enumerate}
     \item \code{Plain}
     \begin{itemize}
-      \item Gute Lesbarkeit
-      \item Kombinationen \codebox{\texttt{\#~~}} , \code{: ⁣} nicht möglich
-      \item Indikatoren (\code{:}, \code{[}, …) nur in Spezialfällen als erstes Zeichen erlaubt
+      \item Most Readable Style
+      \item Combinations \codebox{\texttt{\#~~}} , \code{: ⁣} not possible
+      \item Indicators (\code{:}, \code{[}, …) only under certain circumstances as first character
     \end{itemize}
     \item \code{'Single Quoted'}
     \begin{itemize}
-      \item Ähnlich gut lesbar wie Plain Style
-      \item Bis auf \code{'} keine Sonderzeichen
+      \item Provides good readability
+      \item Apart from \code{'} no special characters
     \end{itemize}
     \item \code{"Double Quoted"}
     \begin{itemize}
-      \item Unterstützung für Escape Sequences:\\ \code{\n}, \codebox{\texttt{{\textbackslash}x0a}}, \codebox{\texttt{{\textbackslash}u000a}}, \codebox{\texttt{{\textbackslash}U0000000a}}, …
-      \item alle Strings darstellbar
+      \item Supports Escape Sequences:\\ \code{\n}, \codebox{\texttt{{\textbackslash}x0a}}, \codebox{\texttt{{\textbackslash}u000a}}, \codebox{\texttt{{\textbackslash}U0000000a}}, …
+      \item Only style that supports arbitrary characters
     \end{itemize}
   \end{enumerate}
 \end{frame}
@@ -292,8 +294,13 @@
 \subsubsection{🗒 Block Style}
 
 \begin{frame}[fragile, allowframebreaks]{🗒 Block Style}
-  \begin{enumerate}
 
+  \begin{itemize}
+    \item Supports long blocks of data
+    \item No special characters
+  \end{itemize}
+
+  \begin{enumerate}
     \item
       \begin{minted}[autogobble]{yaml}
         |
@@ -302,7 +309,7 @@
         # "Literal\nStyle"
       \end{minted}
       \begin{itemize}
-        \item Newlines (\code{\n}) werden direkt übernommen
+        \item No changes to newline characters (\code{\n})
       \end{itemize}
 
     \item
@@ -313,65 +320,74 @@
         # "Folded Style"
       \end{minted}
       \begin{itemize}
-        \item Erstes Newline-Zeichen wird durch Space ersetzt, falls es keine führenden Leerzeichen in der nächsten nicht-leeren Zeile gibt
+        \item Replaces first Newline-Character with space, if the next non-empty line does not contain leading whitespace characters.
     \end{itemize}
 
   \end{enumerate}
 
   \newpage
-  \begin{tikzpicture}[overlay, remember picture]
-  \node[anchor=center] at (current page.center) {
-	\begin{columns}
+  \hspace{0pt}
+  \vspace{-1cm}
+  \vfill
+  \begin{block}{Comparison}\
+    \begin{columns}
 
-    \column{.50\textwidth}
-    \begin{minted}[autogobble, showspaces, spacecolor = lightgray, space=·]{yaml}
-      >
-        One
-        Two
+      \column{.5\textwidth}
+      Literal:\\[0.2cm]
+      \begin{minted}[autogobble, showspaces, spacecolor = lightgray, space=·]{yaml}
+        |
+          One
+          Two
 
-        List:
-         * Item 1
-         * Item 2
-      # "One Two\nList:\n\ \
-      #  * Item 1\n * Item 2\n"
-    \end{minted}
+          List:
+           * Item 1
+           * Item 2
 
-    \column{.50\textwidth}
-    \begin{minted}[autogobble, showspaces, spacecolor = lightgray, space=·]{yaml}
-      |
-        One
-        Two
+        # "One\nTwo\n\nList:\n\ \
+        #  * Item 1\n * Item 2\n"
+      \end{minted}
 
-        List:
-         * Item 1
-         * Item 2
-      # "One\nTwo\n\nList:\n\ \
-      #  * Item 1\n * Item 2\n"
-    \end{minted}
-  \end{columns}};
-  \end{tikzpicture}
+      \column{.5\textwidth}
+      Folded:\\[0.2cm]
+      \begin{minted}[autogobble, showspaces, spacecolor = lightgray, space=·]{yaml}
+        >
+          One
+          Two
+
+          List:
+           * Item 1
+           * Item 2
+
+        # "One Two\nList:\n\ \
+        #  * Item 1\n * Item 2\n"
+      \end{minted}
+
+    \end{columns}
+  \end{block}
+  \hspace{0pt}
+  \vfill
 
   \newpage
   \begin{block}{Block Scalar Header}
     \begin{enumerate}
       \item Indentation Header \codebox{\texttt{|4}}, \code{>2}, \code{>5}, …
       \begin{itemize}
-        \item Spezifiziert Einrückung des Blocks
-        \item Kein Indentation Header $⇔$ Automatische Detektion
-        \item Erste Zeilen enthalten zusätzliche Leerzeichen $⇔$ \\
-              \alert{Fehler bei Auto-Detektion}
+        \item Specifies Indentation of Block
+        \item No Indentation Header $⇔$ Automatic Detection
+        \item First lines contain additional whitespace $⇔$ \\
+              \alert{Auto-Detection fails}
       \end{itemize}
       \item Chomping Header \codebox{\texttt{|-}}, \codebox{\texttt{|+}}, \code{>-}, \code{>+}
       \begin{itemize}
-        \item Spezifiziert Bedeutung der leeren Zeilen \alert{am Ende}
+        \item Specifies removal of empty lines \alert{at the end}
         \begin{enumerate}
-          \item Strip \code{-}: Leere Zeilen werden verworfen
-          \item Keep \code{+}: Leere Zeilen werden gespeichert
-          \item Clip (Kein Indikator): Leere Zeilen werden durch \code{\n} ersetzt
+          \item Strip \code{-}: Remove trailing whitespace
+          \item Keep \code{+}: Save trailing whitespace
+          \item Clip (No Indicator): Empty lines replaced with \code{\n}
         \end{enumerate}
       \end{itemize}
     \end{enumerate}
-    Beliebige Kombinationen \codebox{\texttt{|-8}}, \code{>4+}, … möglich
+    Arbitrary combinations \codebox{\texttt{|-8}}, \code{>4+}, … possible
   \end{block}
 
 \end{frame}
@@ -380,9 +396,9 @@
 
 \begin{frame}[fragile]{🗃 Stream}
   \begin{itemize}
-    \item YAML Stream: Mehrere Dokumente hintereinander
-    \item Document-End-Marker \code{...} trennt einzelne Dokumente
-    \item Optionaler Directives-End-Marker \code{---} trennt “Directives” von eigentlichem Inhalt
+    \item YAML Stream: Sequence of Multiple Documents
+    \item Document End Marker \code{...} separates documents
+    \item Optional Directives End Marker \code{---} separates \alert{directives} from content
   \end{itemize}
   \begin{minted}[autogobble]{yaml}
     %YAML 1.2 # Directive
@@ -400,12 +416,12 @@
 \subsection{📢 Directives}
 
 \begin{frame}[fragile]{📢 Directives}
-  Anweisungen vor dem eigentlichen Dokument spezifizieren:
+  Directives before document content specify:
   \begin{enumerate}
     \item YAML Version \codebox{\texttt{\%YAML}}
-    \item Prefix für Tag-Shorthands \codebox{\texttt{\%TAG}}
+    \item Prefix for tag shorthands \codebox{\texttt{\%TAG}}
     \begin{itemize}
-      \item Primary und Secondary Tag-Shorthand sind vordefiniert:
+      \item Predefined primary and secondary tag shorthand:
       \begin{minted}[autogobble]{yaml}
         %TAG !  !
         %TAG !! tag:yaml.org,2002:
@@ -424,15 +440,15 @@
   \end{minted}
 \end{frame}
 
-\subsection{🐠🐙🐶 Typen}
+\subsection{🐠🐙🐶 Types}
 
 \subsubsection{🏷 Tags}
 
 \begin{frame}[allowframebreaks, fragile]{🏷 Tags}
   \begin{itemize}
-    \item Optionaler Tag spezifiziert Datentyp
-    \item Ohne Tag $⇒$ automatische Erkennung von Typ
-    \item 3 verschiedene Arten von Tags
+    \item Optional \alert{Tag} specifies data type
+    \item Without tag $⇒$ automatic recognition of type
+    \item 3 Different Types of Tags
     \begin{enumerate}
       \item Verbatim \code{!<!local>}, \code{!<global>}
       \item Shorthand \code{!suffix}, \code{!!suffix}, \code{!named!suffix}
@@ -440,17 +456,17 @@
     \end{enumerate}
     \item Verbatim Tags
     \begin{description}
-      \item [Local Tag] Unterschiedliche Bedeutung je nach Anwendung (Bsp: \code{!<!ruby/object:Set>})
-      \item [Global Tag] Bedeutung eindeutig\\
-            (Beispiel: \code{!<tag:yaml.org,2002:int>})
+      \item [Local Tag] Different semantics in different context (e.g. \code{!<!ruby/object:Set>})
+      \item [Global Tag] Semantics are always the same\\
+            (e.g. \code{!<tag:yaml.org,2002:int>})
     \end{description}
-    \item Non Specific Tag \code{!} (nur bei Non-Plain Skalar)
-    \item Shorthand-Tags und Non-Specific Tags werden zu Verbatim Tag erweitert
+    \item Non Specific Tag \code{!} (Only for non-plain scalars)
+    \item YAML resolves shorthand tags and non-specific tags to verbatim tags
   \end{itemize}
 
   \newpage
 
-  \begin{block}{Umwandlung von Shorthand/Non-Specific $⇒$ Verbatim}~\\
+  \begin{block}{Shorthand/Non-Specific Tag $⇒$ Verbatim Tag}~\\
     \begin{minted}[autogobble]{yaml}
       # %TAG  shorthand     definition
       %TAG     !name!    tag:yaml.org,2002:
@@ -473,7 +489,7 @@
 
 \begin{frame}[allowframebreaks, fragile]{📚 Schemas}
   \begin{itemize}
-    \item 3 Vordefinierte Schema (Kategorien) für Typen (Tags)
+    \item 3 Predefines Schema (Categories) for Types (Tags)
     \begin{enumerate}
       \item Failsafe Schema
       \begin{description}
@@ -481,25 +497,25 @@
         \item [Sequence] \code{!!seq [Item1, Item2]}
         \item [Mapping] \code{!!map {Key: Value}}
       \end{description}
-      \item JSON Schema (Failsafe Schema + JSON Typen)
+      \item JSON Schema (Failsafe Schema + JSON Types)
       \begin{description}
         \item [Null] \code{!!null null: value of null key}
         \item [Boolean] \code{!!bool false}
         \item [Integer] \code{!!int -42}
         \item [Float] \code{!!float .nan}
       \end{description}
-      \item Core Schema (JSON Schema + Erweiterte Daten-Eingabe)
+      \item Core Schema (JSON Schema + Additional Input Possibilities)
       \begin{itemize}
-        \item Octal- \code{0o123} und Hexadezimal-Format \code{0xfefe}
-        \item Mehr Schreibweisen für spezielle Werte \\
-              z.B. \code{null}, \code{Null}, \code{~}, \code{NULL}
+        \item Octal- \code{0o123} and Hex-Format \code{0xfefe}
+        \item Multiple Notations for same value \\
+              e.g. \code{null}, \code{Null}, \code{~}, \code{NULL}
       \end{itemize}
     \end{enumerate}
   \end{itemize}
 
   \newpage
   \begin{itemize}
-    \item Zusätzliche Typen (\textcolor{orange}{\url{http://yaml.org/type}})
+    \item Additional Types (\textcolor{orange}{\url{http://yaml.org/type}})
     \begin{description}[labelwidth = 1cm]
       \item [Ordered Map] \code{!!omap [first: 1, second: 2]}
       \item [Set] \code{!!set {No, Order}}
@@ -507,7 +523,7 @@
       \item [Time] \code{!!timestamp 1337-12-24}
       \item […]
     \end{description}
-    \item Eigene Datentypen z.B. mittels Local Tag~\\[0.5cm]
+    \item Definition of custom types via local tags\\[0.5cm]
     \begin{minted}[autogobble]{yaml}
       # print(Set.new([false, 1, '2']).to_yaml)
       --- !ruby/object:Set
@@ -523,15 +539,15 @@
 
 \begin{frame}[fragile]{⚓️ Anchors \& Aliases}
   \begin{itemize}
-    \item Dienen dazu selbes Datum öfters wiederzuverwenden
-    \item Anchor \code{&name} verweist auf Datum
-    \item Referenz \code{*name} fügt Datum an neuer Stelle ein~\\[0.5cm]
+    \item Use same data multiple times
+    \item Anchor \code{&name} specifies data location
+    \item Reference \code{*name} inserts data at current location~\\[0.5cm]
     \begin{minted}[autogobble]{yaml}
       green: &green
         🌳🌱🌿🌱🌿🌱🌿🌳
       flowers: &flowers
         🌳🌸🌼🌻🌺🌼🌸🌳
-      garden:              # print(data['garden']):
+      garden:              # puts(data['garden']):
         - *green           # 🌳🌱🌿🌱🌿🌱🌿🌳
         - *flowers         # 🌳🌸🌼🌻🌺🌼🌸🌳
         - 🌳🌱🐞🌱🌱🐛🌱🌳 # 🌳🌱🐞🌱🌱🐛🌱🌳
