@@ -361,12 +361,33 @@
           Style
       \end{minted}
 
-      Next \alert{non-empty} line does not start with leading \alert{content whitespace}:
       \begin{enumerate}
-        \item Empty Line(s): Remove first \code{\n}
-        \item Non-Space Character at Start: Replace \code{\n} with space
-      \end{enumerate}
 
+        \item
+          \codebox{
+            \texttt{Line\textcolor{orange}{{\textbackslash}n}No Whitespace}
+          } $⇒$ \code{Line No Whitespace}
+
+        \item %
+          \codebox{
+            \texttt{%
+              Line\textcolor{orange}{{\textbackslash}n}%
+              \textcolor{purple}{{\textbackslash}n…{\textbackslash}n}%
+              No WS
+            }
+          }
+          $⇒$
+          \codebox{
+            \texttt{%
+              Line\textcolor{purple}{{\textbackslash}n…{\textbackslash}n}%
+              No WS
+            }
+          }
+
+        \item
+          Otherwise: \alert{Leading content} (non-indentation) \alert{whitespace} in next non-empty line $⇒$ No change
+
+      \end{enumerate}
   \end{enumerate}
 
   \newpage
