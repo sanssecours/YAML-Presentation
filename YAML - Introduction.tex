@@ -171,6 +171,8 @@
        - Today: YAML Ain’t Markup Language
     - Current Version: YAML 1.2 (2009)
     - Superset of JSON # since YAML 1.2
+    - Two Styles: Flow Style (Indicator Based) and
+                  Block Style (Indentation Based)
     - 3 Different Data Types:
       - Scalar:
         - "Hello World"
@@ -178,8 +180,7 @@
         - 123
       - Sequence: [Text, 'Text', "Text", 123.5]
       - Map: {🔑: Value, see-no-evil monkey: 🙈}
-    - Most Important Goal:
-        “YAML is easily readable by humans.”
+    - Design Goal: “YAML is easily readable by humans.”
     # All of the text on this slide is valid YAML
   \end{minted}
 \end{frame}
@@ -189,20 +190,21 @@
 \begin{frame}[fragile]{😱 Flow Style}
   \begin{block}{Previous Document in Pure Flow Style}~\\
     \begin{minted}[autogobble]{yaml}
-      [{"Abbreviation":
-        [{"At First": "Yet Another Markup Language"},
-         {"Today": "YAML Ain’t Markup Language"}]},
-       {"Current Version": "YAML 1.2 (2009)"},
-       "Superset of JSON", # since YAML 1.2
-       {"3 Different Data Types":
-         [{"Scalar": ["Hello World", "👋 🌍", 123]},
-          {"Sequence": ["Text", "Text", "Text", 123.5]},
-          {"Map": {"🔑": "Value",
-                   "see-no-evil monkey": "🙈"}}]},
-       {"Most Important Goal":
-         "“YAML is easily readable by humans.”"}]
-      # All of the text on this slide is valid YAML
-    \end{minted}
+      [{'Abbreviation':
+        [{'At First': 'Yet Another Markup Language'},
+         {'Today': 'YAML Ain’t Markup Language'}]},
+       {'Current Version': 'YAML 1.2 (2009)'},
+       'Superset of JSON',
+       {'Two Styles': 'Flow Style (Indicator Based) and
+                       Block Style (Indentation Based)'},
+       {'3 Different Data Types':
+         [{'Scalar': ['Hello World', '👋 🌍', 123]},
+          {'Sequence': ['Text', 'Text', 'Text', 123.5]},
+          {'Map': {'see-no-evil monkey':
+           '🙈', '🔑': 'Value'}}]},
+       {'Design Goal':
+        '“YAML is easily readable by humans.”'}]
+     \end{minted}
   \end{block}
 \end{frame}
 
