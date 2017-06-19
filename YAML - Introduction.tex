@@ -346,10 +346,9 @@
   \begin{enumerate}
     \item
       \begin{minted}[autogobble]{yaml}
-        |
+        | # "Literal\nStyle"
           Literal
           Style
-        # "Literal\nStyle"
       \end{minted}
       \begin{itemize}
         \item No changes to newline characters (\code{\n})
@@ -357,14 +356,16 @@
 
     \item
       \begin{minted}[autogobble]{yaml}
-        >
+        > # "Folded Style"
           Folded
           Style
-        # "Folded Style"
       \end{minted}
-      \begin{itemize}
-        \item Replaces first newline character with space, if the next non-empty line does not contain leading whitespace characters
-    \end{itemize}
+
+      Next \alert{non-empty} line does not start with leading \alert{content whitespace}:
+      \begin{enumerate}
+        \item Empty Line(s): Remove first \code{\n}
+        \item Non-Space Character at Start: Replace \code{\n} with space
+      \end{enumerate}
 
   \end{enumerate}
 
