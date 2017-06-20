@@ -1,5 +1,35 @@
 # “Minimally” Useful 🐪 YAML Features for Elektra
 
+## 📋 Lists
+
+- [ ] Flow Style (`[value 1, value 2]`)
+- [ ] Block Style
+
+    ```yaml
+    - value 1
+    - value 2
+    ```
+
+## 🗺 Mappings
+
+- [ ] Flow Style (`{key: value, another key: another value}`)
+- [ ] Block Style
+
+    ```yaml
+    key: value
+    another key: another value
+    ```
+
+- [ ] Support for Complex Keys
+
+    ```yaml
+    ?
+    - { 'pretty': complex key }
+    - - 😱
+    - Still part of the key
+    : value
+    ```
+
 ## 📏 Scalars
 
 - Flow Scalars
@@ -26,45 +56,24 @@
   - [ ] Indentation Header (`>1`, `|4`)
   - [ ] Chomping Header (`|- `, `>+`)
 
-## 🗺 Mappings
+## 🗃 Multiple Documents
 
-- [ ] Flow Style (`{key: value, another key: another value}`)
-- [ ] Block Style
-
-    ```yaml
-    key: value
-    another key: another value
-    ```
-
-- [ ] Support for Complex Keys
-
-    ```yaml
-    ?
-    - { 'pretty': complex key }
-    - - 😱
-    - Still part of the key
-    : value
-    ```
-
-## 📋 Lists
-
-- [ ] Flow Style (`[value 1, value 2]`)
-- [ ] Block Style
-
-    ```yaml
-    - value 1
-    - value 2
-    ```
+- [ ] Support Streams
 
 ## 🐠🐙🐶 Types
+
+### 📢 Directives
+
+- [ ] YAML Version (`%YAML 1.2`)
+- [ ] TAG Handle Definition (`%TAG !! tag:yaml.org,2002:`)
+  - [ ] Named Tag Handle (`!name!suffix`)
 
 ###  🏷 Tags
 
 #### Tag Shorthands
 
-- [ ] Primary Tag Handle (`!suffix`)
-- [ ] Secondary Tag Handle (`!!suffix`)
-- [ ] Named Tag Handle (`!name!suffix`)
+- [ ] Primary Tag Handle (Default Resolution: `!`) (`!suffix`)
+- [ ] Secondary Tag Handle (Default Resolution: `tag:yaml.org,2002:` ) (`!!suffix`)
 
 #### Verbatim Tags
 
@@ -83,12 +92,6 @@
 - [ ] Additional Types (`!!omap`, `!!set`, `!!binary`, `!!timestamp`, …)
   - Which Ones:
 
-## 📢 Directives
+## ⚓️ References
 
-- [ ] YAML Version (`%YAML 1.2`)
-- [ ] TAG Handle Definition (`%TAG !! tag:yaml.org,2002:`)
-
-## 🥙 Misc
-
-- [ ] Multiple Documents (Streams)
-- [ ] Anchors & Aliases
+- [ ] Support Anchors & Aliases
