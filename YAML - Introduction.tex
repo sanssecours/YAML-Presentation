@@ -461,7 +461,7 @@
 
 \begin{frame}[fragile]{🗃 Stream}
   \begin{itemize}
-    \item YAML Stream: Sequence of Multiple Documents
+    \item YAML Stream: Sequence of multiple Documents
     \item Document End Marker \code{...} separates documents
     \item Optional Directives End Marker \code{---} separates \alert{directives} from content
   \end{itemize}
@@ -496,8 +496,8 @@
   \begin{minted}[autogobble]{yaml}
     # Directives
     %YAML 1.2                       # YAML Version
-    %TAG ! tag:yaml.org,2002:       # Primary Tag Handle
-    %TAG !! tag:yaml.org,2002:      # Secondary Tag Handle
+    %TAG !       tag:yaml.org,2002: # Primary Tag Handle
+    %TAG !!      tag:yaml.org,2002: # Secondary Tag Handle
     %TAG !named! tag:yaml.org,2002: # Named Tag Handle
     --- # Directives End Marker
     [!!str 6, !str 6, !named!str 6, ! 6,
@@ -606,7 +606,7 @@
   \begin{itemize}
     \item Use same data multiple times
     \item Anchor \code{&name} specifies data location
-    \item Reference \code{*name} inserts data at current location~\\[0.5cm]
+    \item Alias \code{*name} inserts data at current location~\\[0.5cm]
     \begin{minted}[autogobble]{yaml}
       green: &green
         🌳🌱🌿🌱🌿🌱🌿🌳
